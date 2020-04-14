@@ -12,7 +12,7 @@
     <Company></Company>
     <RepositoryUrl>https://github.com/zxyao145/ByNotice</RepositoryUrl>
     <Description>
-      a notification razor component for blazor
+      A notification razor component for blazor. You can find the usage in GitHub.
     </Description>
   </PropertyGroup>
 
