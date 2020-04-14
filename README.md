@@ -98,11 +98,13 @@ colorful error
 
 **emphasize**
 
-<video src="./docMedia/emphasize.mp4"></video>
+![emphasize](./docMedia/emphasize.gif)
+
+
 
 **OnClose Hook**
 
-<video src="./docMedia/OnClose Hook.mp4"></video>
+![OnClose Hook](./docMedia/OnClose Hook.gif)
 
 ## Attention
 
