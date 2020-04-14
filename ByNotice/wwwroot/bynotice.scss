@@ -1,0 +1,297 @@
+﻿$name: "by-notice";
+
+$successColor: #52c41a;
+$infoColor: #1890ff;
+$warningColor: #ffc107;
+$errorColor: #dc3545;
+
+$successAntiColor: #fff;
+$infoAntiColor:#fff;
+$warningAntiColor: #000;
+$errorAntiColor: #fff;
+$noticeItemWidth: 300px;
+
+@mixin successColorStyle {
+    background-color: $successColor;
+    color: $successAntiColor;
+}
+@mixin infoColorStyle {
+    background-color: $infoColor;
+    color: $infoAntiColor;
+}
+@mixin warningColorStyle {
+    background-color: $warningColor;
+    color: $warningAntiColor;
+}
+@mixin errorColorStyle {
+    background-color: $errorColor;
+    color: $errorAntiColor;
+}
+
+
+
+.#{$name} {
+    position: fixed;
+    z-index: 3000;
+    max-width: calc(100vw - 32px);
+    box-sizing: border-box;
+    color: rgba(0,0,0,.65);
+    font-size: 14px;
+    line-height: 1.5715;
+    list-style: none;
+
+    &.#{$name}-TopRight {
+        right: 24px;
+        top: 24px;
+        bottom: auto;
+    }
+
+    &.#{$name}-TopLeft {
+        left: 24px;
+        top: 24px;
+        bottom: auto;
+    }
+
+    &.#{$name}-BottomLeft {
+        left: 24px;
+        bottom: 0;
+        top: auto;
+    }
+
+    &.#{$name}-BottomRight {
+        right: 24px;
+        bottom: 0;
+        top: auto;
+    }
+
+    .#{$name}-fade-out {
+        animation: #{$name}NotificationFadeOut 0.2s 1 ease;
+        animation-play-state: running;
+        animation-fill-mode: forwards;
+    }
+}
+
+
+
+
+.#{$name}-item {
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    width: $noticeItemWidth;
+    padding: 16px;
+    margin-bottom: 16px;
+    border: none;
+    border-radius: 4px;
+    position: relative;
+    box-shadow: 0 3px 6px -4px rgba(0,0,0,.12), 0 6px 16px 0 rgba(0,0,0,.08), 0 9px 28px 8px rgba(0,0,0,.05);
+
+    > {
+        .#{$name}-icon {
+            flex-grow: 0;
+            margin-right: 16px;
+
+            > {
+                span {
+                    font-size: 24px;
+                }
+
+                .#{$name}-success {
+                    color: $successColor;
+                }
+
+                .#{$name}-info {
+                    color: #1890ff;
+                }
+
+                .#{$name}-warning {
+                    color: #faad14;
+                }
+
+                .#{$name}-error {
+                    color: #ff4d4f;
+                }
+            }
+        }
+
+        .#{$name}-body {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            overflow: hidden;
+
+            > {
+                .#{$name}-title {
+                    font-weight: 700;
+                    font-size: 14px;
+                }
+
+                .#{$name}-content {
+                    flex-wrap: wrap;
+                    overflow-wrap: break-word;
+                    word-wrap: break-word;
+                }
+            }
+        }
+
+        .#{$name}-close {
+            position: absolute;
+            top: 4px;
+            right: 8px;
+            font-size: 24px;
+            line-height: 1;
+            cursor: pointer;
+        }
+    }
+
+    &.#{$name}-item-success {
+        @include successColorStyle;
+
+        > .#{$name}-icon > .#{$name}-success {
+            color: $successAntiColor;
+        }
+    }
+
+    &.#{$name}-item-info {
+        @include infoColorStyle;
+
+        > .#{$name}-icon > .#{$name}-info {
+            color: $infoAntiColor;
+        }
+    }
+
+    &.#{$name}-item-warning {
+        @include warningColorStyle;
+
+        > .#{$name}-icon > .#{$name}-warning {
+            color: $warningAntiColor;
+        }
+    }
+
+    &.#{$name}-item-error {
+        @include errorColorStyle;
+
+        > .#{$name}-icon > .#{$name}-error {
+            color: $errorAntiColor;
+        }
+    }
+}
+
+.#{$name}-fade-in-right {
+    animation: #{$name}NotificationFadeIn 0.24s 1 ease;
+    animation-play-state: running;
+    animation-fill-mode: forwards;
+}
+
+.#{$name}-fade-in-left {
+    animation: #{$name}NotificationLeftFadeIn 0.24s 1 ease;
+    animation-play-state: running;
+    animation-fill-mode: forwards;
+}
+
+.#{$name}-fade-in-emphasize-right {
+    animation: #{$name}NotificationEmphasizeFadeIn 0.24s 1 ease;
+    animation-play-state: running;
+    animation-fill-mode: forwards;
+}
+
+.#{$name}-fade-in-emphasize-left {
+    animation: #{$name}NotificationEmphasizeLeftFadeIn 0.24s 1 ease;
+    animation-play-state: running;
+    animation-fill-mode: forwards;
+}
+
+@keyframes #{$name}NotificationFadeIn {
+    0% {
+        left: 100%;
+        opacity: 0;
+    }
+
+    100% {
+        left: 0;
+        opacity: 1;
+    }
+}
+
+@keyframes #{$name}NotificationLeftFadeIn {
+    0% {
+        right: 100%;
+        opacity: 0;
+    }
+
+    100% {
+        right: 0;
+        opacity: 1;
+    }
+}
+
+//Emphasize
+@keyframes #{$name}NotificationEmphasizeFadeIn {
+    0% {
+        opacity: 0;
+        transform: translate3d(100%, 0, 0);
+    }
+
+    60% {
+        opacity: 1;
+        transform: translate3d(-25px, 0, 0);
+    }
+
+    75% {
+        transform: translate3d(+10px, 0, 0);
+    }
+
+    90% {
+        transform: translate3d(-5px, 0, 0);
+    }
+
+    100% {
+        transform: none;
+    }
+}
+
+@keyframes #{$name}NotificationEmphasizeLeftFadeIn {
+    0% {
+        opacity: 0;
+        transform: translate3d(-100%, 0, 0);
+    }
+
+    60% {
+        opacity: 1;
+        transform: translate3d(25px, 0, 0);
+    }
+
+    75% {
+        transform: translate3d(-10px, 0, 0);
+    }
+
+    90% {
+        transform: translate3d(5px, 0, 0);
+    }
+
+    100% {
+        transform: none;
+    }
+}
+
+@keyframes #{$name}NotificationFadeOut {
+    0% {
+        /*max-height: 800px;*/
+        /*margin-bottom: 16px;
+        padding-top: 16px;
+        padding-bottom: 16px;*/
+        opacity: 1;
+    }
+
+    100% {
+        max-height: 0;
+        margin-bottom: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        border: 0;
+        opacity: 0;
+        display: none;
+    }
+}

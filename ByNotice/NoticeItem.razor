@@ -1,0 +1,19 @@
+﻿@inherits NoticeBase
+
+<div class="@BuildClassName()" @attributes="@BuildStyle()" >
+    @if (Option.IconType != IconType.None)
+    {
+        <div class="@(_classPrefix)-icon">
+            @((MarkupString)GetIcon())
+        </div>
+    }
+    <div class="@(_classPrefix)-body">
+        <div class="@(_classPrefix)-title">
+            @Option.Title
+        </div>
+        <div class="@(_classPrefix)-content">
+            @Option.Message
+        </div>
+    </div>
+    <span class="@(_classPrefix)-close" @onclick="RemoveSelf">&times;</span>
+</div>

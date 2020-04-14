@@ -1,0 +1,286 @@
+﻿@page "/"
+@inject IJSRuntime JsRuntime
+Default
+<button class="btn btn-primary btn-sm" @onclick="NotifyI">notify info</button>
+<button class="btn btn-primary btn-sm" @onclick="NotifyS">notify success</button>
+<button class="btn btn-primary btn-sm" @onclick="NotifyW">notify warning</button>
+<button class="btn btn-primary btn-sm" @onclick="NotifyE">notify error</button>
+<button class="btn btn-primary btn-sm" @onclick="NotifyN">notify none icon</button>
+<br />
+<br />
+<hr />
+Placement
+<button class="btn btn-primary btn-sm" @onclick="NotifyTopLeft">notify TopLeft</button>
+<button class="btn btn-primary btn-sm" @onclick="NotifyBottomLeft">notify BottomLeft</button>
+<button class="btn btn-primary btn-sm" @onclick="NotifyBottomRight">notify BottomRight</button>
+
+<br />
+<br />
+<hr />
+Emphasize
+<button class="btn btn-primary btn-sm" @onclick="NotifyTopRightEmphasize">notify TopRight Strong</button>
+<button class="btn btn-primary btn-sm" @onclick="NotifyTopLeftEmphasize">notify TopLeft Strong</button>
+
+@*
+    It's too tired to write a event function with a name,
+    and then there are anonymous event functions
+*@
+
+<br />
+<br />
+<hr />
+Colorful
+<button class="btn btn-primary btn-sm" @onclick='async ()=>{
+        await Notice.Instance.NotifyAsync(new NoticeOption()
+        {
+            Message = "info colorful",
+            Title = "标题",
+            IsColorful = true
+         });}'>
+    notify info colorful
+</button>
+<button class="btn btn-primary btn-sm" @onclick='async ()=>{
+       await Notice.Instance.NotifyAsync(new NoticeOption()
+        {
+            Message = "success colorful",
+            Title = "标题",
+            IconType = IconType.Success,
+            IsColorful = true
+        });}'>
+    notify success colorful
+</button>
+<button class="btn btn-primary btn-sm" @onclick='async ()=>{
+         await Notice.Instance.NotifyAsync(new NoticeOption()
+        {
+            Message = "warning colorful",
+            Title = "标题",
+            IconType = IconType.Warning,
+            IsColorful = true
+        });}'>
+    notify warning colorful
+</button>
+<button class="btn btn-primary btn-sm" @onclick='async ()=>{
+       await Notice.Instance.NotifyAsync(new NoticeOption()
+        {
+            Message = "error colorful",
+            Title = "标题",
+            IconType = IconType.Error,
+            IsColorful = true
+        });}'>
+    notify error colorful
+</button>
+<button class="btn btn-primary btn-sm" @onclick='async ()=>{
+       await Notice.Instance.NotifyAsync(new NoticeOption()
+        {
+            Message = "none icon colorful",
+            Title = "标题",
+            IconType = IconType.None,
+            IsColorful = true
+        });}'>
+    notify none icon colorful
+</button>
+
+<br />
+<br />
+<hr />
+Keep time
+
+<button class="btn btn-primary btn-sm" @onclick='async ()=>{
+       await Notice.Instance.NotifyAsync(new NoticeOption()
+        {
+            Message = "Keep 2s",
+            Title = "标题",
+            KeepTime = TimeSpan.FromSeconds(2)
+         });}'>
+    notify 2s
+</button>
+<button class="btn btn-primary btn-sm" @onclick='async ()=>{
+        await  Notice.Instance.NotifyAsync(new NoticeOption()
+        {
+            Message = "Keep 10s",
+            Title = "标题",
+            KeepTime = TimeSpan.FromSeconds(10)
+        });}'>
+    notify 10s
+</button>
+<button class="btn btn-primary btn-sm" @onclick='async ()=>{
+        await Notice.Instance.NotifyAsync(new NoticeOption()
+        {
+            Message = "Not close",
+            Title = "标题",
+            KeepTime = TimeSpan.FromSeconds(0)
+        });}'>
+    notify not close
+</button>
+
+<br />
+<br />
+<hr />
+OnClose event
+<button class="btn btn-primary btn-sm" @onclick='async ()=>{
+                      await Notice.Instance.NotifyAsync(new NoticeOption()
+                      {
+                          Message = "OnClose event",
+                          Title = "标题",
+                          OnClose = (option) => {
+                              JsRuntime.InvokeVoidAsync("alert", "OnClose");
+                          }
+                      });}'>
+    notify OnClose event
+</button>
+
+<br />
+<br />
+<hr />
+Custom Icon
+<button class="btn btn-primary btn-sm" @onclick='async ()=>{
+       await Notice.Instance.NotifyAsync(new NoticeOption()
+        {
+            Message = "Custom Icon using element (Success)",
+            Title = "标题",
+            IconType = IconType.Success,
+            CustomIconHtml = "<span class=\"oi oi-home\" aria-hidden=\"true\"></span>"
+         });}'>
+    Custom Icon using element
+</button>
+
+<button class="btn btn-primary btn-sm" @onclick='async ()=>{
+       await Notice.Instance.NotifyAsync(new NoticeOption()
+        {
+            Message = "Custom Icon using svg (Warning colorful)",
+            Title = "标题",
+            IconType = IconType.Warning,
+            IsColorful = true,
+            CustomIconHtml = "<svg viewBox=\"64 64 896 896\" focusable=\"false\" class=\"\" data-icon=\"question-circle\" width=\"1em\" height=\"1em\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z\"></path><path d=\"M623.6 316.7C593.6 290.4 554 276 512 276s-81.6 14.5-111.6 40.7C369.2 344 352 380.7 352 420v7.6c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V420c0-44.1 43.1-80 96-80s96 35.9 96 80c0 31.1-22 59.6-56.1 72.7-21.2 8.1-39.2 22.3-52.1 40.9-13.1 19-19.9 41.8-19.9 64.9V620c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8v-22.7a48.3 48.3 0 0130.9-44.8c59-22.7 97.1-74.7 97.1-132.5.1-39.3-17.1-76-48.3-103.3zM472 732a40 40 0 1080 0 40 40 0 10-80 0z\"></path></svg>"
+         });}'>
+    Custom Icon using svg
+</button>
+
+<br />
+<br />
+<hr />
+Custom Width(default is 300px)
+<button class="btn btn-primary btn-sm" @onclick='async ()=>{
+       await Notice.Instance.NotifyAsync(new NoticeOption()
+        {
+            Message = "Custom Width:400px",
+            Title = "标题",
+            Width = "400px"
+         });}'>
+    Custom Width
+</button>
+
+<br />
+<br />
+<br />
+<br />
+@code
+{
+
+    private async Task NotifyI()
+    {
+        Console.WriteLine("Notify");
+        await Notice.Instance.NotifyAsync(new NoticeOption()
+        {
+            Message = "default Info" + DateTime.Now.ToString("HH:mm:ss"),
+            Title = "标题"
+        });
+    }
+
+    private async Task NotifyS()
+    {
+        Console.WriteLine("Notify");
+        await Notice.Instance.NotifyAsync(new NoticeOption()
+        {
+            IconType = IconType.Success,
+            Message = "default Success (this without Title) " + DateTime.Now.ToString("HH:mm:ss"),
+        });
+    }
+
+    private async Task NotifyW()
+    {
+        Console.WriteLine("Notify");
+        await Notice.Instance.NotifyAsync(new NoticeOption()
+        {
+            IconType = IconType.Warning,
+            Message = "default Warning " + DateTime.Now.ToString("HH:mm:ss"),
+            Title = "标题"
+        });
+    }
+
+    private async Task NotifyE()
+    {
+        Console.WriteLine("Notify");
+        await Notice.Instance.NotifyAsync(new NoticeOption()
+        {
+            IconType = IconType.Error,
+            Message = "default Error " + DateTime.Now.ToString("HH:mm:ss"),
+            Title = "标题"
+        });
+    }
+
+    private async Task NotifyN()
+    {
+        Console.WriteLine("Notify");
+        await Notice.Instance.NotifyAsync(new NoticeOption()
+        {
+            IconType = IconType.None,
+            Message = "default None icon " + DateTime.Now.ToString("HH:mm:ss"),
+            Title = "标题"
+        });
+    }
+
+    private async Task NotifyTopLeft()
+    {
+        Console.WriteLine("Notify");
+        await Notice.Instance.NotifyAsync(new NoticeOption()
+        {
+            Message = "TopLeft " + DateTime.Now.ToString("HH:mm:ss"),
+            Title = "标题",
+            Placement = NoticePlacement.TopLeft
+        });
+    }
+
+    private async Task NotifyBottomLeft()
+    {
+        Console.WriteLine("Notify");
+        await Notice.Instance.NotifyAsync(new NoticeOption()
+        {
+            Message = "BottomLeft " + DateTime.Now.ToString("HH:mm:ss"),
+            Title = "标题",
+            Placement = NoticePlacement.BottomLeft
+        });
+    }
+
+    private async Task NotifyBottomRight()
+    {
+        Console.WriteLine("Notify");
+        await Notice.Instance.NotifyAsync(new NoticeOption()
+        {
+            Message = "BottomRight " + DateTime.Now.ToString("HH:mm:ss"),
+            Title = "标题",
+            Placement = NoticePlacement.BottomRight
+        });
+    }
+
+    private async Task NotifyTopRightEmphasize()
+    {
+        await Notice.Instance.NotifyAsync(new NoticeOption()
+        {
+            Message = "Right Emphasize",
+            Title = "标题",
+            IsEmphasize = true,
+        });
+    }
+    private async Task NotifyTopLeftEmphasize()
+    {
+        await Notice.Instance.NotifyAsync(new NoticeOption()
+        {
+            Message = "Left Emphasize",
+            Title = "标题",
+            IsEmphasize = true,
+            Placement = NoticePlacement.TopLeft
+        });
+    }
+}
+

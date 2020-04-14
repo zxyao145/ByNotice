@@ -1,0 +1,24 @@
+{
+  "name": "bynotice",
+  "version": "0.1.0",
+  "description": "a blazor notification component",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "bynotice",
+    "blazor",
+    "notification",
+    "component"
+  ],
+  "author": "zxyao",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-notify": "^3.2.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-watch": "^5.0.1"
+  }
+}

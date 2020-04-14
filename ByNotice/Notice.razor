@@ -1,0 +1,43 @@
+﻿@inherits NoticeBase
+
+@{
+    if (_topRightNoticeItems.Count > 0)
+    {
+        <div class="@(_classPrefix) @(_classPrefix)-TopRight">
+            @foreach (var option in _topRightNoticeItems)
+            {
+                <NoticeItem Option="option" @key="option" Close="RemoveChild" />
+            }
+        </div>
+    }
+
+    if (_topLeftNoticeItems.Count > 0)
+    {
+        <div class="@(_classPrefix) @(_classPrefix)-TopLeft">
+            @foreach (var option in _topLeftNoticeItems)
+            {
+                <NoticeItem Option="option" @key="option" Close="RemoveChild" />
+            }
+        </div>
+    }
+
+    if (_bottomLeftNoticeItems.Count > 0)
+    {
+        <div class="@(_classPrefix) @(_classPrefix)-BottomLeft">
+            @foreach (var option in _bottomLeftNoticeItems)
+            {
+                <NoticeItem Option="option" @key="option" Close="RemoveChild" />
+            }
+        </div>
+    }
+
+    if (_bottomRightNoticeItems.Count > 0)
+    {
+        <div class="@(_classPrefix) @(_classPrefix)-BottomRight">
+            @foreach (var option in _bottomRightNoticeItems)
+            {
+                <NoticeItem Option="option" @key="option" Close="RemoveChild" />
+            }
+        </div>
+    }
+}
