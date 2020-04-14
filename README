@@ -33,6 +33,12 @@ await Notice.Instance.NotifyAsync(new NoticeOption()
 });
 ```
 
+Oh, you should install it first. Nuget path is [here](https://www.nuget.org/packages/ByNotice/).
+
+```powershell
+Install-Package ByNotice
+```
+
 See wiki or "ByNotice.Sample" for more usage.
 
 ## Attention
