@@ -104,7 +104,7 @@ colorful error
 
 **OnClose Hook**
 
-![OnClose Hook](./docMedia/OnClose Hook.gif)
+![OnClose Hook](./docMedia/OnCloseHook.gif)
 
 ## Attention
 
