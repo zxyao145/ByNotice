@@ -21,7 +21,7 @@ namespace ByNotice
 
         public bool IsColorful { get; set; } = false;
 
-        public Action<NoticeOption> OnClose = null;
+        public Action<NoticeOption> OnClose { get; set; } = null;
 
         public bool IsEmphasize { get; set; } = false;
 

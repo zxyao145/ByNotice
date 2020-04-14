@@ -39,7 +39,70 @@ Oh, you should install it first. Nuget path is [here](https://www.nuget.org/pack
 Install-Package ByNotice
 ```
 
+result:
+
+![quickstart](./docMedia/quickstart.jpg)
+
 See wiki or "ByNotice.Sample" for more usage.
+
+## Demo preview
+
+**default style:**
+
+default info
+
+![default-info](./docMedia/default-info.jpg)
+
+default success
+
+![default-success](./docMedia/default-success.jpg)
+
+default warning
+
+![default-warning](./docMedia/default-warning.jpg)
+
+default error
+
+![default-error](./docMedia/default-error.jpg)
+
+default none icon
+
+![default-info](./docMedia/default-none-icon.jpg)
+
+**colorful:**
+
+colorful info
+
+![colorful-info](./docMedia/colorful-info.jpg)
+
+colorful success
+
+![colorful-success](./docMedia/colorful-success.jpg)
+
+colorful warning
+
+![colorful-warning](./docMedia/colorful-warning.jpg)
+
+colorful error
+
+![colorful-error](./docMedia/colorful-error.jpg)
+
+
+**custom width:**
+
+![custom-width](./docMedia/custom-width.jpg)
+
+**custom icon:**
+
+![custom-icon](./docMedia/custom-icon.jpg)
+
+**emphasize**
+
+<video src="./docMedia/emphasize.mp4"></video>
+
+**OnClose Hook**
+
+<video src="./docMedia/OnClose Hook.mp4"></video>
 
 ## Attention
 

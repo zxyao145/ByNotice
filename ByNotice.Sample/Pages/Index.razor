@@ -179,17 +179,15 @@ Custom Width(default is 300px)
 
     private async Task NotifyI()
     {
-        Console.WriteLine("Notify");
         await Notice.Instance.NotifyAsync(new NoticeOption()
         {
-            Message = "default Info" + DateTime.Now.ToString("HH:mm:ss"),
-            Title = "标题"
+            Message = "here is the message",
+            Title = "here is tite"
         });
     }
 
     private async Task NotifyS()
     {
-        Console.WriteLine("Notify");
         await Notice.Instance.NotifyAsync(new NoticeOption()
         {
             IconType = IconType.Success,
