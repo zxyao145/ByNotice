@@ -4,6 +4,8 @@
 
 This a notification razor component for blazor. It is written entirely in C# and CSS.
 
+Sample [https://zxyao145.github.io/ByNotice/](https://zxyao145.github.io/ByNotice/).
+
 ## Quick Start
 
 1. Add css to the html.
@@ -43,7 +45,7 @@ result:
 
 ![quickstart](./docMedia/quickstart.jpg)
 
-See wiki or "ByNotice.Sample" for more usage.
+See [wiki](https://github.com/zxyao145/ByNotice/wiki) or "ByNotice.Sample" for more usage.
 
 ## Demo preview
 
