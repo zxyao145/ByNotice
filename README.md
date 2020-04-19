@@ -1,6 +1,6 @@
 # ByNotice
 
-![Nuget](https://img.shields.io/nuget/v/ByNotice)
+[![NuGet](https://img.shields.io/nuget/v/ByNotice)](https://www.nuget.org/packages/ByNotice)
 
 This a notification razor component for blazor. It is written entirely in C# and CSS.
 
