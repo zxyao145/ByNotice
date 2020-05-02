@@ -11,16 +11,16 @@ namespace ByNotice
             Instance = this;
         }
 
+        [Obsolete]
         public static Notice Instance { get; private set; }
 
 
-        private List<NoticeOption> _topRightNoticeItems = new List<NoticeOption>();
+        private readonly List<NoticeOption> _topRightNoticeItems = new List<NoticeOption>();
+        private readonly List<NoticeOption> _topLeftNoticeItems = new List<NoticeOption>();
+        private readonly List<NoticeOption> _bottomLeftNoticeItems = new List<NoticeOption>();
+        private readonly List<NoticeOption> _bottomRightNoticeItems = new List<NoticeOption>();
 
-        private List<NoticeOption> _topLeftNoticeItems = new List<NoticeOption>();
-        private List<NoticeOption> _bottomLeftNoticeItems = new List<NoticeOption>();
-        private List<NoticeOption> _bottomRightNoticeItems = new List<NoticeOption>();
-
-
+        
         public async Task NotifyAsync(NoticeOption option)
         {
             switch (option.Placement)

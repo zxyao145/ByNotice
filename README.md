@@ -19,27 +19,39 @@ Sample [https://zxyao145.github.io/ByNotice/](https://zxyao145.github.io/ByNotic
 ```c#
 @using ByNotice
 ```
-2. Add component "Notice" in "MainLayout.razor" (or whatever you want to use).
+3. Injection service
+
+```c#
+builder.Services.AddByNotice();
+```
+
+4. Add component "Notice" in "MainLayout.razor" (or whatever you want to use).
 
 ``` html
 <Notice />
 ```
 
-3. notify a message
+5. notify a message
 
 ```c#
-await Notice.Instance.NotifyAsync(new NoticeOption()
+@inject NoticeService NoticeService
+    
+await NoticeService.NotifyAsync(new NoticeOption()
 {
     Message = "here is the message",
     Title = "here is tite"
 });
 ```
 
-Oh, you should install it first. Nuget path is [here](https://www.nuget.org/packages/ByNotice/).
+you can use `NoticeService.NotifyInfoAsync`, `NoticeService.NotifySuccessAsync`, `NoticeService.NotifyWarningAsync`, `NoticeService.NotifyErrorAsync` method too.
+
+Oh, you should install it first. The Nuget path is [here](https://www.nuget.org/packages/ByNotice/).
 
 ```powershell
 Install-Package ByNotice
 ```
+
+**Be careful**: Notice.Instance is obsolete after version 0.2.0.
 
 result:
 

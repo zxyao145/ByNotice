@@ -1,5 +1,6 @@
 ﻿@page "/"
 @inject IJSRuntime JsRuntime
+@inject NoticeService NoticeService
 Default
 <button class="btn btn-primary btn-sm" @onclick="NotifyI">notify info</button>
 <button class="btn btn-primary btn-sm" @onclick="NotifyS">notify success</button>
@@ -31,7 +32,7 @@ Emphasize
 <hr />
 Colorful
 <button class="btn btn-primary btn-sm" @onclick='async ()=>{
-        await Notice.Instance.NotifyAsync(new NoticeOption()
+        await NoticeService.NotifyAsync(new NoticeOption()
         {
             Message = "info colorful",
             Title = "标题",
@@ -40,7 +41,7 @@ Colorful
     notify info colorful
 </button>
 <button class="btn btn-primary btn-sm" @onclick='async ()=>{
-       await Notice.Instance.NotifyAsync(new NoticeOption()
+       await NoticeService.NotifyAsync(new NoticeOption()
         {
             Message = "success colorful",
             Title = "标题",
@@ -50,7 +51,7 @@ Colorful
     notify success colorful
 </button>
 <button class="btn btn-primary btn-sm" @onclick='async ()=>{
-         await Notice.Instance.NotifyAsync(new NoticeOption()
+         await NoticeService.NotifyAsync(new NoticeOption()
         {
             Message = "warning colorful",
             Title = "标题",
@@ -60,7 +61,7 @@ Colorful
     notify warning colorful
 </button>
 <button class="btn btn-primary btn-sm" @onclick='async ()=>{
-       await Notice.Instance.NotifyAsync(new NoticeOption()
+       await NoticeService.NotifyAsync(new NoticeOption()
         {
             Message = "error colorful",
             Title = "标题",
@@ -70,7 +71,7 @@ Colorful
     notify error colorful
 </button>
 <button class="btn btn-primary btn-sm" @onclick='async ()=>{
-       await Notice.Instance.NotifyAsync(new NoticeOption()
+       await NoticeService.NotifyAsync(new NoticeOption()
         {
             Message = "none icon colorful",
             Title = "标题",
@@ -86,7 +87,7 @@ Colorful
 Keep time
 
 <button class="btn btn-primary btn-sm" @onclick='async ()=>{
-       await Notice.Instance.NotifyAsync(new NoticeOption()
+       await NoticeService.NotifyAsync(new NoticeOption()
         {
             Message = "Keep 2s",
             Title = "标题",
@@ -95,7 +96,7 @@ Keep time
     notify 2s
 </button>
 <button class="btn btn-primary btn-sm" @onclick='async ()=>{
-        await  Notice.Instance.NotifyAsync(new NoticeOption()
+        await  NoticeService.NotifyAsync(new NoticeOption()
         {
             Message = "Keep 10s",
             Title = "标题",
@@ -104,7 +105,7 @@ Keep time
     notify 10s
 </button>
 <button class="btn btn-primary btn-sm" @onclick='async ()=>{
-        await Notice.Instance.NotifyAsync(new NoticeOption()
+        await NoticeService.NotifyAsync(new NoticeOption()
         {
             Message = "Not close",
             Title = "标题",
@@ -118,7 +119,7 @@ Keep time
 <hr />
 OnClose event
 <button class="btn btn-primary btn-sm" @onclick='async ()=>{
-                      await Notice.Instance.NotifyAsync(new NoticeOption()
+                      await NoticeService.NotifyAsync(new NoticeOption()
                       {
                           Message = "OnClose event",
                           Title = "标题",
@@ -134,7 +135,7 @@ OnClose event
 <hr />
 Custom Icon
 <button class="btn btn-primary btn-sm" @onclick='async ()=>{
-       await Notice.Instance.NotifyAsync(new NoticeOption()
+       await NoticeService.NotifyAsync(new NoticeOption()
         {
             Message = "Custom Icon using element (Success)",
             Title = "标题",
@@ -145,7 +146,7 @@ Custom Icon
 </button>
 
 <button class="btn btn-primary btn-sm" @onclick='async ()=>{
-       await Notice.Instance.NotifyAsync(new NoticeOption()
+       await NoticeService.NotifyAsync(new NoticeOption()
         {
             Message = "Custom Icon using svg (Warning colorful)",
             Title = "标题",
@@ -161,7 +162,7 @@ Custom Icon
 <hr />
 Custom Width(default is 300px)
 <button class="btn btn-primary btn-sm" @onclick='async ()=>{
-       await Notice.Instance.NotifyAsync(new NoticeOption()
+       await NoticeService.NotifyAsync(new NoticeOption()
         {
             Message = "Custom Width:400px",
             Title = "标题",
@@ -179,7 +180,7 @@ Custom Width(default is 300px)
 
     private async Task NotifyI()
     {
-        await Notice.Instance.NotifyAsync(new NoticeOption()
+        await NoticeService.NotifyAsync(new NoticeOption()
         {
             Message = "here is the message",
             Title = "here is tite"
@@ -188,7 +189,7 @@ Custom Width(default is 300px)
 
     private async Task NotifyS()
     {
-        await Notice.Instance.NotifyAsync(new NoticeOption()
+        await NoticeService.NotifyAsync(new NoticeOption()
         {
             IconType = IconType.Success,
             Message = "default Success (this without Title) " + DateTime.Now.ToString("HH:mm:ss"),
@@ -198,7 +199,7 @@ Custom Width(default is 300px)
     private async Task NotifyW()
     {
         Console.WriteLine("Notify");
-        await Notice.Instance.NotifyAsync(new NoticeOption()
+        await NoticeService.NotifyAsync(new NoticeOption()
         {
             IconType = IconType.Warning,
             Message = "default Warning " + DateTime.Now.ToString("HH:mm:ss"),
@@ -209,7 +210,7 @@ Custom Width(default is 300px)
     private async Task NotifyE()
     {
         Console.WriteLine("Notify");
-        await Notice.Instance.NotifyAsync(new NoticeOption()
+        await NoticeService.NotifyAsync(new NoticeOption()
         {
             IconType = IconType.Error,
             Message = "default Error " + DateTime.Now.ToString("HH:mm:ss"),
@@ -220,7 +221,7 @@ Custom Width(default is 300px)
     private async Task NotifyN()
     {
         Console.WriteLine("Notify");
-        await Notice.Instance.NotifyAsync(new NoticeOption()
+        await NoticeService.NotifyAsync(new NoticeOption()
         {
             IconType = IconType.None,
             Message = "default None icon " + DateTime.Now.ToString("HH:mm:ss"),
@@ -231,7 +232,7 @@ Custom Width(default is 300px)
     private async Task NotifyTopLeft()
     {
         Console.WriteLine("Notify");
-        await Notice.Instance.NotifyAsync(new NoticeOption()
+        await NoticeService.NotifyAsync(new NoticeOption()
         {
             Message = "TopLeft " + DateTime.Now.ToString("HH:mm:ss"),
             Title = "标题",
@@ -242,7 +243,7 @@ Custom Width(default is 300px)
     private async Task NotifyBottomLeft()
     {
         Console.WriteLine("Notify");
-        await Notice.Instance.NotifyAsync(new NoticeOption()
+        await NoticeService.NotifyAsync(new NoticeOption()
         {
             Message = "BottomLeft " + DateTime.Now.ToString("HH:mm:ss"),
             Title = "标题",
@@ -253,7 +254,7 @@ Custom Width(default is 300px)
     private async Task NotifyBottomRight()
     {
         Console.WriteLine("Notify");
-        await Notice.Instance.NotifyAsync(new NoticeOption()
+        await NoticeService.NotifyAsync(new NoticeOption()
         {
             Message = "BottomRight " + DateTime.Now.ToString("HH:mm:ss"),
             Title = "标题",
@@ -263,7 +264,7 @@ Custom Width(default is 300px)
 
     private async Task NotifyTopRightEmphasize()
     {
-        await Notice.Instance.NotifyAsync(new NoticeOption()
+        await NoticeService.NotifyAsync(new NoticeOption()
         {
             Message = "Right Emphasize",
             Title = "标题",
@@ -272,7 +273,7 @@ Custom Width(default is 300px)
     }
     private async Task NotifyTopLeftEmphasize()
     {
-        await Notice.Instance.NotifyAsync(new NoticeOption()
+        await NoticeService.NotifyAsync(new NoticeOption()
         {
             Message = "Left Emphasize",
             Title = "标题",

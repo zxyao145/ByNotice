@@ -3,9 +3,9 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <RazorLangVersion>3.0</RazorLangVersion>
-    <AssemblyVersion>0.1.0.0</AssemblyVersion>
-    <FileVersion>0.1.0.0</FileVersion>
-    <Version>0.1.0</Version>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <Version>1.0.0</Version>
     <PackageId>ByNotice</PackageId>
     <Authors>zxyao</Authors>
     <PackageTags>ByNotice;blazor;notification;notice</PackageTags>
@@ -16,18 +16,18 @@
     </Description>
   </PropertyGroup>
 
-
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Components" Version="3.1.3" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="3.1.3" />
+    <Content Remove="wwwroot\bynotice.css.map" />
+    <Content Remove="wwwroot\bynotice.scss" />
+    <Content Remove="wwwroot\gulpfile.js" />
+    <Content Remove="wwwroot\package-lock.json" />
+    <Content Remove="wwwroot\package.json" />
   </ItemGroup>
 
 
   <ItemGroup>
-    <Content Update="wwwroot\bynotice.css">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
+    <PackageReference Include="Microsoft.AspNetCore.Components" Version="3.1.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="3.1.3" />
   </ItemGroup>
 
 </Project>
