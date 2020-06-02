@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace ByNotice
 {
@@ -10,7 +11,10 @@ namespace ByNotice
     {
         public async Task NotifyAsync(NoticeOption option)
         {
-            await Notice.Instance?.NotifyAsync(option);
+            if (Notice.Instance != null)
+            {
+                await Notice.Instance.NotifyAsync(option);
+            }
         }
 
         public async Task NotifyInfoAsync(NoticeOption option)
@@ -42,7 +46,7 @@ namespace ByNotice
     {
         public static IServiceCollection AddByNotice(this IServiceCollection services)
         {
-            services.AddSingleton<NoticeService>();
+            services.TryAddScoped<NoticeService>();
             return services;
         }
     }

@@ -11,8 +11,7 @@ namespace ByNotice
             Instance = this;
         }
 
-        [Obsolete]
-        public static Notice Instance { get; private set; }
+        internal static Notice Instance { get; private set; }
 
 
         private readonly List<NoticeOption> _topRightNoticeItems = new List<NoticeOption>();
