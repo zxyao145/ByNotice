@@ -15,13 +15,13 @@
     </Description>
   </PropertyGroup>
 
-  <!--<ItemGroup>
+  <ItemGroup>
     <Content Remove="wwwroot\bynotice.css.map" />
     <Content Remove="wwwroot\bynotice.scss" />
     <Content Remove="wwwroot\gulpfile.js" />
     <Content Remove="wwwroot\package-lock.json" />
     <Content Remove="wwwroot\package.json" />
-  </ItemGroup>-->
+  </ItemGroup>
 
 
   <ItemGroup>
