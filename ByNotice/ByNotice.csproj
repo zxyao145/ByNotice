@@ -1,18 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
-    <AssemblyVersion>2.0.0.0</AssemblyVersion>
-    <FileVersion>2.0.0.0</FileVersion>
-    <Version>2.0.0</Version>
+    <TargetFramework>net6.0</TargetFramework>
+    <AssemblyVersion>3.0.0.0</AssemblyVersion>
+    <FileVersion>3.0.0.0</FileVersion>
+    <Version>3.0.2</Version>
     <PackageId>ByNotice</PackageId>
     <Authors>zxyao</Authors>
-    <PackageTags>ByNotice;blazor;notification;notice</PackageTags>
+    <PackageTags>ByNotice;blazor;notify;notification;notice;NET6</PackageTags>
     <Company></Company>
     <RepositoryUrl>https://github.com/zxyao145/ByNotice</RepositoryUrl>
     <Description>
-      A notification razor component for blazor. You can find the usage in GitHub.
-    </Description>
+		A notification razor component for blazor. DotNET 6 is Supported.
+	</Description>
   </PropertyGroup>
 
   <ItemGroup>
@@ -25,7 +25,7 @@
 
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.0" />
   </ItemGroup>
 
 </Project>
